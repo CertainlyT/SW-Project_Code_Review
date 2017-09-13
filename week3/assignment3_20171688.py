@@ -40,21 +40,24 @@ def doScoreDB(scdb):
             if inputstr == "": continue
             parse = inputstr.split(" ")
             if parse[0] == 'add':
-                #try:
-                record = {'Name': parse[1], 'Age': int(parse[2]), 'Score': int(parse[3])}
-                scdb += [record]
+                try :
+                    record = {'Name': parse[1], 'Age': int(parse[2]), 'Score': int(parse[3])}
+                except ValueError :
+                    print("Please input Age and Score the type of 'int'.")
+
+                else :
+                    scdb += [record]
             elif parse[0] == 'del':
                 for p in scdb:
                     if p['Name'] == parse[1]:
                         scdb.remove(p)
 
             elif parse[0] == 'show':
-                sortKey = 'Name' if len(parse) == 1 else parse[1]
-                #if parse [1] == 'Age':
-                #    sortKey = 'Age'
-                #elif parse[1] =='Score':
-                #    sortKey = 'Score'
-                showScoreDB(scdb, sortKey)
+                try:
+                    sortKey = 'Name' if len(parse) == 1 else parse[1]
+                    showScoreDB(scdb, sortKey)
+                except KeyError:
+                    print("Please input the correct form.\nex)'show Age'")
 
             elif parse[0] == 'quit':
                 break
@@ -65,11 +68,12 @@ def doScoreDB(scdb):
                         print(p)
 
             elif  parse[0] == 'inc':
-                for p in scdb:
-                    if p['Name'] == parse[1]:
-                        print(p)
-                        p['Score'] = str(int(p['Score']) + int(parse[2]))
-                        print(p)
+                try:
+                    for p in scdb:
+                        if p['Name'] == parse[1]:
+                            p['Score'] = str(int(p['Score']) + int(parse[2]))
+                except ValueError:
+                    print("Please input a correct form.")
             else:
                 print("Invalid command: " + parse[0])
         #except:
