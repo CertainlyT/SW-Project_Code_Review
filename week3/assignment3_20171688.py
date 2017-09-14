@@ -47,10 +47,14 @@ def doScoreDB(scdb):
 
                 else :
                     scdb += [record]
+
             elif parse[0] == 'del':
+                del_list = []
                 for p in scdb:
                     if p['Name'] == parse[1]:
-                        scdb.remove(p)
+                        del_list.append(p)
+                for name in del_list:
+                    scdb.remove(name)
 
             elif parse[0] == 'show':
                 try:
