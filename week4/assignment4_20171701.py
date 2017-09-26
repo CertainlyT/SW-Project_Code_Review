@@ -29,8 +29,10 @@ while True:
             break
         elif n < 0 or r < 0:
             print("양수를 입력하세요")
+        elif n < r:
+            print("성립하지 않는 조건입니다")
         else:
-                print("C(%d, %d): %d" % (n, r, combination(n,r)))
-                print("C(%d, %d): %d" % (n, r, combinationf(n, r)))
+                print("C(%d, %d): %d" % (n, r, combination(n, r)), "Using recursive function")
+                print("C(%d, %d): %d" % (n, r, combinationf(n, r)), "Using factorial")
     except ValueError:
         print("숫자를 입력해주세요")
