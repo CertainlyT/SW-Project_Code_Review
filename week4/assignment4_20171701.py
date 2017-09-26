@@ -30,7 +30,7 @@ while True:
         elif n < 0 or r < 0:
             print("양수를 입력하세요")
         else:
-                print("C(n, r):", combination(n, r))
-                print("C(n, r):", combinationf(n, r))
+                print("C(%d, %d): %d" % (n, r, combination(n,r)))
+                print("C(%d, %d): %d" % (n, r, combinationf(n, r)))
     except ValueError:
         print("숫자를 입력해주세요")
