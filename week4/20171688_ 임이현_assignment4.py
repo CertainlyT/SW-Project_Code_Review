@@ -16,6 +16,20 @@ def calculate(n, m):
          return combination(n - 1, m) + combination(n - 1, m - 1)
 
 
-n = int(input("Enter n:"))
-m = int(input("Enter m: "))
+while (1):
+    try:
+        n = int(input("Enter n:"))
+        m = int(input("Enter m: "))
+        if n == -1:
+            break
+        elif n<=0 or m< 0 :
+            print(" \tn>0이어야 하고 m>=0 이어야 합니다.\n\t값을 다시 입력해주세요.")
+            continue
+        elif n>0 or m>=0:
+            break
+
+    except ValueError:
+        print("값을 입력해주세요.")
+
+
 print( calculate(n, m))
