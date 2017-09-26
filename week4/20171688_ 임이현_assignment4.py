@@ -29,9 +29,9 @@ while (1):
             continue
         elif n>0 or m>=0:
             break
+        print(calculate(n, m))
 
     except ValueError:
         print("값을 입력해주세요.")
 
 
-    print( calculate(n, m))
