@@ -20,11 +20,17 @@ def combinationf(n, r):
     return int(factorial(n) / (factorial(r) * factorial(n - r)))
 
 
-n = int(input("Enter n: "))
-r = int(input("Enter r: "))
+while True:
+    try:
+        n = int(input("Enter n: "))
+        r = int(input("Enter r: "))
 
-if n < 0 or r < 0:
-    print("양수를 입력하세요")
-else:
-    print("C(n, r):", combination(n, r))
-    print("C(n, r):", combinationf(n, r))
+        if n == -1 or r == -1:
+            break
+        elif n < 0 or r < 0:
+            print("양수를 입력하세요")
+        else:
+                print("C(n, r):", combination(n, r))
+                print("C(n, r):", combinationf(n, r))
+    except ValueError:
+        print("숫자를 입력해주세요")
