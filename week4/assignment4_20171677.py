@@ -4,7 +4,7 @@
 def combination_recursive(n, r):
     if n == 0 or r == 0:
         return 1
-    elif n < r:
+    elif n < r or n < 0 or r < 0:
         return 0
     elif n == r:
         return 1
@@ -19,10 +19,6 @@ while True:
         if n == -1:
             break
         m = int(input("Enter m : "))
-
-        if n < 0 or m < 0:
-            print("정확한 값을 입력해주세요")
-            continue
 
     except ValueError:
         print("숫자를 입력해주세요")
