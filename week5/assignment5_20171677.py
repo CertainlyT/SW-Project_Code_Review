@@ -1,24 +1,22 @@
 import time
 
-
 def iterfibo(nbr):
     sum = 0
     before = 0
     after = 1
-    if nbr == 1 or nbr == 2:
-        return 1
 
-    elif nbr > 2:
-        for i in range(nbr - 1):
+    if nbr > 2:
+        for i in range(nbr-1):
             sum = before + after
             before = after
             after = sum
 
     return sum
 
-
 def fibo(nbr):
-    if nbr == 1 or nbr == 2:
+    if nbr == 0:
+        return 0
+    elif nbr == 1:
         return 1
     else:
         return fibo(nbr - 1) + fibo(nbr - 2)
