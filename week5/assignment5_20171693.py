@@ -13,17 +13,17 @@ def iterfibo(n):
 		return 1
 	elif n == 3:
 		return 2
-	a = 1
-	b = 1
+	oddNumber = 1
+	evenNumber = 1
 	nn = (n - 2) // 2
 	for i in range(nn):
-		a = a + b
-		b = a + b
+		oddNumber = oddNumber + evenNumber
+		evenNumber = oddNumber + evenNumber
 	if n % 2 == 0:
-		return b
+		return evenNumber
 	else:
-		a = a + b
-		return a
+		oddNumber = oddNumber + evenNumber
+		return oddNumber
 
 while True:
 	nbr = int(input("Enter a number: "))
