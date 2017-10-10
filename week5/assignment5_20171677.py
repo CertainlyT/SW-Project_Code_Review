@@ -4,8 +4,10 @@ def iterfibo(nbr):
     sum = 0
     before = 0
     after = 1
+    if nbr <= 1:
+        return nbr
 
-    if nbr > 2:
+    elif nbr >= 2:
         for i in range(nbr-1):
             sum = before + after
             before = after
