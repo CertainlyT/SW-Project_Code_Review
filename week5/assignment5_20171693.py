@@ -9,10 +9,8 @@ def fibo(n):
 def iterfibo(n):
 	if n == 0:
 		return 0
-	elif 0 < n <= 2:
+	elif n == 1:
 		return 1
-	elif n == 3:
-		return 2
 	oddNumber = 1
 	evenNumber = 1
 	nn = (n - 2) // 2
