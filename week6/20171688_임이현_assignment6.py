@@ -148,9 +148,10 @@ class ScoreDB(QWidget):
     def finding(self):
         finding_text = ""
         for p in self.scoredb:
-            if p['Name'] == self.writingName.text():
-                for attr in sorted(p):
-                    finding_text += str(attr) + "=" + str(p[attr]) + "        \t"
+            if p['Name'] != self.writingName.text():
+                continue
+            for attr in sorted(p):
+                finding_text += str(attr) + "=" + str(p[attr]) + "        \t"
             finding_text += "\n"
         self.textBox.setText(finding_text)
 
