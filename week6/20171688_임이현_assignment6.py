@@ -1,8 +1,7 @@
 import pickle
 import sys
-from PyQt5.QtWidgets import (QWidget, QPushButton, 
-    QHBoxLayout, QVBoxLayout, QApplication, QLabel, 
-    QComboBox, QTextEdit, QLineEdit)
+from PyQt5.QtWidgets import (QWidget, QPushButton, QHBoxLayout, QVBoxLayout, QApplication, QLabel, QComboBox,
+                             QTextEdit, QLineEdit)
 from PyQt5.QtCore import Qt
 
 
@@ -148,9 +147,9 @@ class ScoreDB(QWidget):
 
     def finding(self):
         finding_text = ""
-        for p in sorted(self.scoredb, key=lambda person: person["Name"]):
-            for attr in sorted(p):
-                if p['Name'] == self.writingName.text():
+        for p in self.scoredb:
+            if p['Name'] == self.writingName.text():
+                for attr in sorted(p):
                     finding_text += str(attr) + "=" + str(p[attr]) + "        \t"
             finding_text += "\n"
         self.textBox.setText(finding_text)
