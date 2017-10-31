@@ -115,12 +115,12 @@ class ScoreDB(QWidget):
 
     def showScoreDB(self, user_input):
         command, key = user_input.split(" ")
-        print(self.scoredb)
+        # print(self.scoredb)
         tmp = sorted(self.scoredb, key=lambda row: row[key])
         for row in tmp:
             strm = ""
             for info in row:
-                strm += str(info) + "==>" + str(row[info]) + "\t"
+                strm += str(info) + "= " + str(row[info]) + "      "
                 pass
             self.textedit.append(strm)
             pass
@@ -128,11 +128,11 @@ class ScoreDB(QWidget):
         pass
 
     def add(self, user_input):
-        print(user_input)
+        # print(user_input)
         command, name, age, score, key = user_input.split(" ")
         try:
             record = {'Name': name, 'Age': int(age), 'Score': int(score)}
-            print(record)
+            # print(record)
             self.scoredb += [record]
 
         except:
