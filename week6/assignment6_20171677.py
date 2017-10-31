@@ -3,8 +3,6 @@ import sys
 from PyQt5.QtWidgets import (QWidget, QPushButton,
                              QHBoxLayout, QVBoxLayout, QApplication, QLabel,
                              QComboBox, QTextEdit, QLineEdit)
-from PyQt5.QtCore import Qt
-
 
 class ScoreDB(QWidget):
     def __init__(self):
@@ -117,14 +115,14 @@ class ScoreDB(QWidget):
         command, key = user_input.split(" ")
         # print(self.scoredb)
         tmp = sorted(self.scoredb, key=lambda row: row[key])
+        strm = ""
         for row in tmp:
-            strm = ""
             for info in row:
                 strm += str(info) + "= " + str(row[info]) + "      "
                 pass
-            self.textedit.append(strm)
+            strm += '\n'
             pass
-        self.textedit.append("\n")
+        self.textedit.setText(strm)
         pass
 
     def add(self, user_input):
