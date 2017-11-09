@@ -26,7 +26,7 @@ class Calculator(QWidget):
         super().__init__(parent)
         
         # Display Window
-        self.display = QLineEdit('0')
+        self.display = QLineEdit('')
         self.display.setReadOnly(True)
         self.display.setAlignment(Qt.AlignRight)
         self.display.setMaxLength(15)
@@ -34,7 +34,7 @@ class Calculator(QWidget):
         # Digit Buttons
         self.digitButton = [x for x in range(0, 10)]
 
-        for i in range (0,10):
+        for i in range (10):
             self.digitButton[i] = Button(str(i), self.buttonClicked)
         
         # . and = Buttons
@@ -68,7 +68,7 @@ class Calculator(QWidget):
                 i=0
             else :
                 i=(num-1)%3
-            numLayout.addWidget(self.digitButton[num], int((len(self.digitButton)-1-num)/3), i)
+            numLayout.addWidget(self.digitButton[num], ((len(self.digitButton)-1-num)/3), i)
 
         numLayout.addWidget(self.decButton, 3, 1)
         numLayout.addWidget(self.eqButton, 3, 2)
