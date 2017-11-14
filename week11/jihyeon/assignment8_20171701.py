@@ -171,7 +171,7 @@ class Calculator(QWidget):
                         self.display.setText(self.display.text() + key)
                     else:
                         self.display.setText(key)
-                if key == ".":
+                elif key == ".":
                     if "." in self.display.text():
                         pass
                     elif self.display.text() == "":
