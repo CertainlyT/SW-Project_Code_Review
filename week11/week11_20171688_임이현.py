@@ -95,10 +95,19 @@ class Calculator(QWidget):
         elif key in constantList:
             self.idx = 0
             self.display.setText(self.display.text() + self.constantVal[constantList.index(key)])
+        # elif key == constantList[0]:
+        #     self.display.setText(self.display.text() + '3.141592')
+        # elif key == constantList[1]:
+        #     self.display.setText(self.display.text() + '3E+8')
+        # elif key == constantList[2]:
+        #     self.display.setText(self.display.text() + '340')
+        # elif key == constantList[3]:
+        #     self.display.setText(self.display.text() + '1.5E+8')
         elif key in functionList:
-            n = self.display.text()
+            n = str(eval(self.display.text()))
             self.flag = 1
             if functionList.index(key) == 0:
+                n=str(eval(self.display.text()))
                 value = calcFunctions.factorial(n)
             elif functionList.index(key) == 1:
                 value = calcFunctions.decToBin(n)
@@ -107,6 +116,22 @@ class Calculator(QWidget):
             elif functionList.index(key) == 3:
                 value = calcFunctions.decToRoman(n)
             self.display.setText(str(value))
+        # elif key == functionList[0]:
+        #     n = self.display.text()
+        #     value = calcFunctions.factorial(n)
+        #     self.display.setText(str(value))
+        # elif key == functionList[1]:
+        #     n = self.display.text()
+        #     value = calcFunctions.decToBin(n)
+        #     self.display.setText(str(value))
+        # elif key == functionList[2]:
+        #     n = self.display.text()
+        #     value = calcFunctions.binToDec(n)
+        #     self.display.setText(str(value))
+        # elif key == functionList[3]:
+        #     n = self.display.text()
+        #     value = calcFunctions.decToRoman(n)
+        #     self.display.setText(str(value))
 
         elif key in operatorList:
 
@@ -134,7 +159,6 @@ class Calculator(QWidget):
         #계산이 끝났을 때 연산자가 아닌 숫자 버튼을 누르면, 새로운 수로 시작하지 않고 결과 뒤에 새로운 숫자가 쓰여지는 것을 방지한다.
         elif key in numPadList:
             self.idx = 0
-            elif
             if self.flag == 1 and key != "=":
                 self.display.setText(key)
                 self.flag = 0;
