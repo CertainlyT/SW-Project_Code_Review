@@ -6,7 +6,6 @@ class Guess:
         self.ans_list = []
         self.currentStatus = ''
         self.count = 0
-        self.tmp = 0
         for i in range (len(self.secretWord)):
             self.ans_list.append('_')
             self.currentStatus += '_'
@@ -28,7 +27,6 @@ class Guess:
 
         self.currentStatus = ''
         self.count = 0
-        self.tmp = 0
         self.guessedChars.add(character)
         for i in range (len(self.secretWord)):
             if i not in self.idx and ( self.secretWord[i] == character ):
@@ -43,9 +41,12 @@ class Guess:
 
         if self.count == 0:
             self.numTries +=1
+            return False
 
         elif len(self.idx) == len(self.secretWord):
             return True
+        else:
+            return False
 
 
 
