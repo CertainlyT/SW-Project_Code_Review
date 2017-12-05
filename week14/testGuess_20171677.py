@@ -56,8 +56,6 @@ class TestGuess(unittest.TestCase):
         self.assertEqual(self.g1.displayGuessed(), ' a d e f l n t u ')
 
     def testDecreaseLife(self):
-        self.assertEqual(self.g2.remainingLives, 7)
-        self.g2.decreaseLife()
         self.assertEqual(self.g2.remainingLives, 6)
         self.g2.decreaseLife()
         self.assertEqual(self.g2.remainingLives, 5)
